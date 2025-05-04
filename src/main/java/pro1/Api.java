@@ -8,6 +8,11 @@ import java.net.http.HttpResponse;
 
 public class Api {
 
+    public static String getSpecializations(int year)
+    {
+        return getFromUri(baseUrl + "/prijimacky/getPrijimaciObory?outputFormat=JSON&rok=" + year + "&jenAktualni=false");
+    }
+
     private static HttpClient client = HttpClient.newBuilder().build();
     private static String baseUrl = "https://stag-demo.uhk.cz/ws/services/rest2";
     public static String getTeachersByDepartment(String department)
@@ -32,9 +37,6 @@ public class Api {
             return null;
         }
     }
-    public static String getSpecializations(int year)
-    {
-        return getFromUri(baseUrl+"/prijimacky/getPrijimaciObory?outputFormat=JSON&rok="+year+"&jenAktualni=false");
-    }
+
 }
 
